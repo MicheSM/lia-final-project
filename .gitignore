@@ -14,3 +14,5 @@ venv/
 .vscode/
 # Ignore logs
 *.log
+# Ignore dataset
+dataset/
