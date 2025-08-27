@@ -1,68 +1,192 @@
-{
-  "Cherry": {
-    "healthy": 854,
-    "Powdery_mildew": 1052
+[
+  {
+    "Plant": "Cherry",
+    "Status": "healthy",
+    "Count": 854
   },
-  "Grape": {
-    "Black_rot": 1180,
-    "Leaf_blight_(Isariopsis_Leaf_Spot)": 1076,
-    "Esca_(Black_Measles)": 1383,
-    "healthy": 423
+  {
+    "Plant": "Grape",
+    "Status": "Black_rot",
+    "Count": 1180
   },
-  "Soybean": {
-    "healthy": 5090
+  {
+    "Plant": "Soybean",
+    "Status": "healthy",
+    "Count": 5090
   },
-  "Tomato": {
-    "Late_blight": 1909,
-    "healthy": 1591,
-    "Spider_mites Two-spotted_spider_mite": 1676,
-    "Tomato_Yellow_Leaf_Curl_Virus": 5357,
-    "Bacterial_spot": 2127,
-    "Septoria_leaf_spot": 1771,
-    "Tomato_mosaic_virus": 373,
-    "Leaf_Mold": 952,
-    "Early_blight": 1000,
-    "Target_Spot": 1404
+  {
+    "Plant": "Grape",
+    "Status": "Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "Count": 1076
   },
-  "Corn": {
-    "Cercospora_leaf_spot Gray_leaf_spot": 513,
-    "Northern_Leaf_Blight": 985,
-    "Common_rust_": 1192,
-    "healthy": 1162
+  {
+    "Plant": "Tomato",
+    "Status": "Late_blight",
+    "Count": 1909
   },
-  "Peach": {
-    "healthy": 360,
-    "Bacterial_spot": 2297
+  {
+    "Plant": "Corn",
+    "Status": "Cercospora_leaf_spot Gray_leaf_spot",
+    "Count": 513
   },
-  "Strawberry": {
-    "Leaf_scorch": 1109,
-    "healthy": 456
+  {
+    "Plant": "Corn",
+    "Status": "Northern_Leaf_Blight",
+    "Count": 985
   },
-  "Apple": {
-    "healthy": 1645,
-    "Black_rot": 621,
-    "Apple_scab": 630,
-    "Cedar_apple_rust": 275
+  {
+    "Plant": "Peach",
+    "Status": "healthy",
+    "Count": 360
   },
-  "Potato": {
-    "Early_blight": 1000,
-    "Late_blight": 1000,
-    "healthy": 152
+  {
+    "Plant": "Strawberry",
+    "Status": "Leaf_scorch",
+    "Count": 1109
   },
-  "Raspberry": {
-    "healthy": 371
+  {
+    "Plant": "Apple",
+    "Status": "healthy",
+    "Count": 1645
   },
-  "Squash": {
-    "Powdery_mildew": 1835
+  {
+    "Plant": "Tomato",
+    "Status": "healthy",
+    "Count": 1591
   },
-  "Orange": {
-    "Haunglongbing_(Citrus_greening)": 5507
+  {
+    "Plant": "Apple",
+    "Status": "Black_rot",
+    "Count": 621
   },
-  "Pepper_bell": {
-    "healthy": 1478,
-    "Bacterial_spot": 997
+  {
+    "Plant": "Apple",
+    "Status": "Apple_scab",
+    "Count": 630
   },
-  "Blueberry": {
-    "healthy": 1502
+  {
+    "Plant": "Tomato",
+    "Status": "Spider_mites Two-spotted_spider_mite",
+    "Count": 1676
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Tomato_Yellow_Leaf_Curl_Virus",
+    "Count": 5357
+  },
+  {
+    "Plant": "Potato",
+    "Status": "Early_blight",
+    "Count": 1000
+  },
+  {
+    "Plant": "Cherry",
+    "Status": "Powdery_mildew",
+    "Count": 1052
+  },
+  {
+    "Plant": "Raspberry",
+    "Status": "healthy",
+    "Count": 371
+  },
+  {
+    "Plant": "Apple",
+    "Status": "Cedar_apple_rust",
+    "Count": 275
+  },
+  {
+    "Plant": "Squash",
+    "Status": "Powdery_mildew",
+    "Count": 1835
+  },
+  {
+    "Plant": "Potato",
+    "Status": "Late_blight",
+    "Count": 1000
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Bacterial_spot",
+    "Count": 2127
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Septoria_leaf_spot",
+    "Count": 1771
+  },
+  {
+    "Plant": "Potato",
+    "Status": "healthy",
+    "Count": 152
+  },
+  {
+    "Plant": "Orange",
+    "Status": "Haunglongbing_(Citrus_greening)",
+    "Count": 5507
+  },
+  {
+    "Plant": "Grape",
+    "Status": "Esca_(Black_Measles)",
+    "Count": 1383
+  },
+  {
+    "Plant": "Pepper_bell",
+    "Status": "healthy",
+    "Count": 1478
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Tomato_mosaic_virus",
+    "Count": 373
+  },
+  {
+    "Plant": "Corn",
+    "Status": "Common_rust_",
+    "Count": 1192
+  },
+  {
+    "Plant": "Blueberry",
+    "Status": "healthy",
+    "Count": 1502
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Leaf_Mold",
+    "Count": 952
+  },
+  {
+    "Plant": "Strawberry",
+    "Status": "healthy",
+    "Count": 456
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Early_blight",
+    "Count": 1000
+  },
+  {
+    "Plant": "Pepper_bell",
+    "Status": "Bacterial_spot",
+    "Count": 997
+  },
+  {
+    "Plant": "Peach",
+    "Status": "Bacterial_spot",
+    "Count": 2297
+  },
+  {
+    "Plant": "Corn",
+    "Status": "healthy",
+    "Count": 1162
+  },
+  {
+    "Plant": "Tomato",
+    "Status": "Target_Spot",
+    "Count": 1404
+  },
+  {
+    "Plant": "Grape",
+    "Status": "healthy",
+    "Count": 423
   }
-}
+]

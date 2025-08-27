@@ -20,22 +20,25 @@ IMAGE_DEST_PATH = BASE_DIR / 'app' / 'data' / 'images'
 
 # loop through dataset and write json to a file with this structure 
 # 
-# plant type 1 :
-#   health condition 1 : number of pictures
-#   health condition 2 : ...
-#   ...
-# plant type 2 :
-#   ...
+# [
+#   {
+#     "Plant": "Cherry",
+#     "Status": "healthy",
+#     "Count": 854
+#   },
+#   {
+#      ...
+#   }
+# ]
 #
-#data = {}
-#for item in IMAGE_SRC_PATH.iterdir():
-#
-#    name, status  = item.name.split('___')          # get name and status from folder name
-#    if not data.get(name):
-#        data[name] = {}                             # create dict for plant type if not exists 
-#    data[name][status] = len(list(item.iterdir()))  # count number of images in folder and save it
-#
-#DATA_PATH.write_text(json.dumps(data, indent=2))
+data = []
+for item in IMAGE_SRC_PATH.iterdir():
+
+    name, status  = item.name.split('___')          
+    data.append({"Plant":name, "Status":status, "Count":len(list(item.iterdir()))})   
+
+#print(data)
+DATA_PATH.write_text(json.dumps(data, indent=2))
 
 
 # for every case save 3 images in folders created in IMAGE_DEST_PATH / correct folder
@@ -56,5 +59,3 @@ IMAGE_DEST_PATH = BASE_DIR / 'app' / 'data' / 'images'
 #            copied += 1
 #        except Exception:
 #            continue
-
-
