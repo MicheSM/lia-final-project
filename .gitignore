@@ -16,3 +16,5 @@ venv/
 *.log
 # Ignore dataset
 dataset/
+# Ignore Docker files
+README.Docker.md
