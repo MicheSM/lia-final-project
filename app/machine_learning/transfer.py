@@ -7,6 +7,20 @@ import torch.nn as nn
 from PIL import Image
 from sklearn.metrics import confusion_matrix
 import numpy as np
+import random
+from torch.utils.data import Subset
+
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# Reduce dataset size by a factor of 10
+def get_subset(dataset, fraction=0.1, seed=42):
+    random.seed(seed)
+    indices = list(range(len(dataset)))
+    random.shuffle(indices)
+    subset_size = max(1, int(len(indices) * fraction))
+    subset_indices = indices[:subset_size]
+    return Subset(dataset, subset_indices)
 
 # Define transformations
 transform = transforms.Compose([
@@ -16,8 +30,13 @@ transform = transforms.Compose([
 ])
 
 # Load dataset (e.g., a folder with class subfolders)
-train_data = datasets.ImageFolder('data/train', transform=transform)
-test_data = datasets.ImageFolder('data/test', transform=transform)
+train_folder = datasets.ImageFolder(str(BASE_DIR / 'dataset' / 'train'), transform=transform)
+test_folder = datasets.ImageFolder(str(BASE_DIR / 'dataset' / 'test'), transform=transform)
+class_names = train_folder.classes
+
+#reduce dataset size by a factor of 10
+train_data = get_subset(train_folder, fraction=0.1)
+test_data = get_subset(test_folder, fraction=0.1)
 
 # Create data loaders
 train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
@@ -32,7 +51,7 @@ for param in model.parameters():
     param.requires_grad = False
     
 # Modify final layer
-num_classes = len(train_data.classes)
+num_classes = len(class_names)
 model.fc = nn.Linear(model.fc.in_features, num_classes)
 model.to(device)
 
@@ -65,6 +84,7 @@ for epoch in range(num_epochs):
     print(f'Epoch {epoch+1}, Loss: {running_loss/len(train_loader):.4f}')
 
 print('Training complete')
+torch.save(model.state_dict(), str(BASE_DIR / 'app' / 'machine_learning' / 'resnet18_transfer.pth'))
 
 # Evaluation
 model.eval()
@@ -108,11 +128,11 @@ def predict_image(image_path, model, transform, class_names):
         _, predicted = torch.max(output, 1)
         probability = torch.nn.functional.softmax(output, dim=1)[0]
         
-    return class_names[predicted.item()], probability[predicted.item()].item()
+    return class_names[predicted.item()], probability[int(predicted.item())].item()
 
 # Example usage
-image_path = 'image.jpg'
-class_names = train_data.classes
-class_name, confidence = predict_image(image_path, model, transform, class_names)
-print(f'Predicted: {class_name} with confidence {confidence:.2f}')
+#image_path = 'image.jpg'
+#class_names = train_data.classes
+#class_name, confidence = predict_image(image_path, model, transform, class_names)
+#print(f'Predicted: {class_name} with confidence {confidence:.2f}')
 
