@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ML Web Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+    <h1>Machine Learning Web App</h1>
+    <nav>
+        <ul>
+            <li><a href="#" data-page="predict">Predict</a></li>
+            <li><a href="#" data-page="models">Models Info</a></li>
+            <li><a href="#" data-page="dataset">Dataset Info</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <!-- Default content will be loaded here dynamically -->
+    </div>
+</body>
+</html>
