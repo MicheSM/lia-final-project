@@ -45,7 +45,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 5000
+EXPOSE 5001
 
 # Run the application.
-CMD  gunicorn -w 1 -b 0.0.0.0:5000 "app:app"
+CMD python3 app.py

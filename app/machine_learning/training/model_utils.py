@@ -1,5 +1,11 @@
 import torch
 import torch.nn as nn
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+from pathlib import Path
+import json
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
 class CustomCNN(nn.Module):
     def __init__(self, num_classes):
@@ -21,13 +27,13 @@ class CustomCNN(nn.Module):
 def get_model(model_name, num_classes):
     from torchvision import models
     if model_name == "resnet18":
-        model = models.resnet18(weights="IMAGENET1K_V1")
+        model = models.resnet18(weights=None)
         for param in model.parameters():
             param.requires_grad = False
         model.fc = nn.Linear(model.fc.in_features, num_classes)
         return model
     elif model_name == "mobilenet_v2":
-        model = models.mobilenet_v2(weights="IMAGENET1K_V1")
+        model = models.mobilenet_v2(weights=None)
         for param in model.parameters():
             param.requires_grad = False
         # Check type before replacing

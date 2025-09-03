@@ -5,6 +5,7 @@ import base64
 from io import BytesIO
 import time
 from model_loader import ModelLoader
+import json
 
 class ImagePredictor:
     def __init__(self):
@@ -28,6 +29,11 @@ class ImagePredictor:
     
     def preprocess_image(self, base64_image):
         """Convert base64 string to tensor"""
+        if base64_image.startswith("data:"):
+            try:
+                _, base64_image = base64_image.split(",", 1)  # drop the data URL header
+            except ValueError:
+                raise ValueError("Malformed data URL, cannot split on ','")
         image_data = base64.b64decode(base64_image)
         image = Image.open(BytesIO(image_data)).convert('RGB')
         tensor = self.transform(image)
@@ -56,8 +62,10 @@ class ImagePredictor:
         
         processing_time = time.time() - start_time
         
+        mappings = json.load(open('data/mapping.json'))
+        
         return {
-            'prediction': predicted.item(),
+            'prediction': mappings[predicted.item()],
             'confidence': confidence.item(),
             'processing_time': processing_time,
             'model_used': model_name

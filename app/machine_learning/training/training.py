@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 from sklearn.metrics import accuracy_score, confusion_matrix
 import json
 from pathlib import Path
-from model_utils import get_model
+from progetto.app.machine_learning.training.model_utils import get_model
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 num_classes = 38
