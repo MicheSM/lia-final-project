@@ -18,3 +18,5 @@ venv/
 dataset/
 # Ignore Docker files
 README.Docker.md
+app/machine_learning/training/data/test/*
+app/machine_learning/training/data/train/*

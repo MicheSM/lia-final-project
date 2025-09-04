@@ -9,6 +9,7 @@ services:
     networks:
       - app-network
     volumes:
+      - ./app/machine_learning/saved_models:/app/saved_models
       - ./app/data:/app/data
 
   web-app:
